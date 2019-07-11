@@ -5,6 +5,7 @@ import Navigation from "../Navigation";
 import LandingPage from "../Landing";
 import HomePage from "../Home";
 import SignupPage from "../SignupPage";
+import LoginPage from "../LoginPage";
 
 import * as ROUTES from "../../constants/routes";
 
@@ -17,6 +18,7 @@ const App = () => (
       <Route exact path={ROUTES.LANDING} component={LandingPage} />
       <Route path={ROUTES.HOME} component={HomePage} />
       <Route path={ROUTES.SIGN_UP} component={SignupPage} />
+      <Route path={ROUTES.SIGN_IN} component={LoginPage} />
     </div>
   </Router>
 );
