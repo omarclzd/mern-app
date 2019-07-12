@@ -1,9 +1,31 @@
-import React from "react";
+import React, { Component } from "react";
+import { getAdvice } from "../../services/ad-api";
 
-const Landing = props => (
-  <div>
-    <h1>Landing</h1>
-  </div>
-);
+class Landing extends Component {
+  state = {
+    advices: []
+  };
+
+  getAdvice = id => {
+    return this.state.advices[id];
+  };
+
+  async componentDidMount() {
+    const adviceData = await getAdvice();
+    this.setState({
+      advices: adviceData.slip.advice
+    });
+    console.log(adviceData.slip.advice);
+  }
+
+  render() {
+    return (
+      <div>
+        <header>Advices</header>
+        <div>{this.state.advices}</div>
+      </div>
+    );
+  }
+}
 
 export default Landing;
