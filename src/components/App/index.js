@@ -58,6 +58,7 @@ class App extends Component {
                 history={history}
                 advices={this.state.advices}
                 getAdvice={this.getAdvice}
+                user={this.state.user}
               />
             )}
           />

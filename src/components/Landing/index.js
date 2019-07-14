@@ -70,8 +70,14 @@ class Landing extends Component {
             <div className="container">
               <div className="columns">
                 <div className="column is-half is-offset-one-quarter">
-                  <CommentBox handleAddComment={this.handleAddComment} />
-                  <Comments comments={this.state.comments} />
+                  <CommentBox
+                    handleAddComment={this.handleAddComment}
+                    user={this.props.user}
+                  />
+                  <Comments
+                    comments={this.state.comments}
+                    user={this.props.user}
+                  />
                 </div>
               </div>
             </div>

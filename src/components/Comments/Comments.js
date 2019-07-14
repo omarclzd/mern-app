@@ -6,7 +6,9 @@ class Comments extends Component {
     return (
       <section className="section">
         {this.props.comments.map((comment, index) => {
-          return <Comment key={index} comment={comment} />;
+          return (
+            <Comment key={index} comment={comment} user={this.props.user} />
+          );
         })}
       </section>
     );

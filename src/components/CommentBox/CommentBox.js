@@ -29,7 +29,7 @@ class CommentBox extends Component {
 
       // Clear input fields
       e.target.elements.comment.value = "";
-      e.target.elements.name.value = "";
+      e.target.elements.name.value = `${this.props.user.name}`;
     }
   }
 
@@ -44,7 +44,8 @@ class CommentBox extends Component {
                 type="text"
                 className="input"
                 name="name"
-                placeholder="Your name"
+                value={this.props.user.name}
+                disabled
               />
             </div>
           </div>
