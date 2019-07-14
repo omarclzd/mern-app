@@ -37,22 +37,6 @@ const Navigation = props => {
       <span>Welcom, {props.user.name}</span>
     </div>
   ) : (
-    // <div>
-    //   <ul>
-    //     <li>
-    //       <Link to={ROUTES.LANDING}>Landing</Link>
-    //     </li>
-    //     <li>
-    //       <Link to={ROUTES.HOME}>Home</Link>
-    //     </li>
-    //     <li>
-    //       <Link to={ROUTES.LANDING} onClick={props.handleLogout}>
-    //         Log Out
-    //       </Link>
-    //     </li>
-    //   </ul>
-    //   <span>Welcom, {props.user.name}</span>
-    // </div>
     <div className={classes.root}>
       <Paper elevation={0} className={classes.paper}>
         <Breadcrumbs aria-label="Breadcrumb">

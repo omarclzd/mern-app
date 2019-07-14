@@ -28,21 +28,6 @@ const Landing = props => {
             ))}
           </ol>
         </section>
-
-        {/* <div className="advice">
-            <ul>
-              {this.state.advices.map((driver, idx) => (
-                <Paper>
-                  <div key={driver.Driver.familyName}>
-                    <p>
-                      {driver.Driver.givenName} {driver.Driver.familyName}
-                    </p>
-                    <p>Position: {idx + 1}</p>
-                  </div>
-                </Paper>
-              ))}
-            </ul>
-          </div> */}
       </Container>
     </React.Fragment>
   );

@@ -84,7 +84,11 @@ class App extends Component {
           <Route
             path={ROUTES.DRIVER}
             render={props => (
-              <DriverPage {...props} getAdvice={this.getAdvice} />
+              <DriverPage
+                {...props}
+                user={this.state.user}
+                getAdvice={this.getAdvice}
+              />
             )}
           />
         </Router>
