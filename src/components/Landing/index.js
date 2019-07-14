@@ -15,19 +15,17 @@ class Landing extends Component {
       comments: []
     };
   }
-  componentWillMount() {
+  componentDidUpdate() {
     /* global Ably */
     const channel = Ably.channels.get("comments");
 
     channel.attach();
     channel.once("attached", () => {
       channel.history((err, page) => {
-        /* create a new array with comments */
         const comments = Array.from(page.items, item => item.data);
 
         this.setState({ comments });
 
-        /* subscribe to new comments */
         channel.subscribe((msg, err) => {
           const commentObject = msg["data"];
           this.handleAddComment(commentObject);
@@ -45,6 +43,30 @@ class Landing extends Component {
   }
 
   render() {
+    let cmtBox = this.props.user ? (
+      <div>
+        <section className="section">
+          <div className="container">
+            <div className="columns">
+              <div className="column is-half is-offset-one-quarter">
+                <CommentBox
+                  handleAddComment={this.handleAddComment}
+                  user={this.props.user}
+                />
+                <Comments
+                  comments={this.state.comments}
+                  user={this.props.user}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    ) : (
+      <div>
+        <p>Please log in to leave a comment</p>
+      </div>
+    );
     return (
       <React.Fragment>
         <CssBaseline />
@@ -66,22 +88,8 @@ class Landing extends Component {
               ))}
             </ol>
           </section>
-          <section className="section">
-            <div className="container">
-              <div className="columns">
-                <div className="column is-half is-offset-one-quarter">
-                  <CommentBox
-                    handleAddComment={this.handleAddComment}
-                    user={this.props.user}
-                  />
-                  <Comments
-                    comments={this.state.comments}
-                    user={this.props.user}
-                  />
-                </div>
-              </div>
-            </div>
-          </section>
+
+          <div>{cmtBox}</div>
         </Container>
       </React.Fragment>
     );
