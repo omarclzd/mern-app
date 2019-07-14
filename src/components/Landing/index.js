@@ -1,66 +1,57 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Landing.css";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
+import Paper from "@material-ui/core/Paper";
 import CssBaseline from "@material-ui/core/CssBaseline";
-
 import Container from "@material-ui/core/Container";
 
-import { getAdvice } from "../../services/ad-api";
+const Landing = props => {
+  return (
+    <React.Fragment>
+      <CssBaseline />
+      <Container fixed>
+        <h2>Results</h2>
+        <Router>
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <section>
+                <ol>
+                  {props.advices.map((driver, idx) => (
+                    <li>
+                      <Link
+                        to={`/driver/${idx}`}
+                        key={driver.Driver.familyName}
+                      >
+                        {driver.Driver.familyName}
+                      </Link>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            )}
+          />
+        </Router>
 
-class Landing extends Component {
-  state = {
-    advices: [],
-    adviceId: null
-  };
-
-  getAdvice = () => {
-    return this.state.advices;
-  };
-
-  handleClick = () => {
-    this.componentDidMount();
-  };
-
-  async componentDidMount() {
-    const adviceData = await getAdvice();
-    this.setState({
-      advices: adviceData
-      // adviceId: adviceData.slip.slip_id
-    });
-    console.log(this.state);
-  }
-
-  render() {
-    return (
-      <React.Fragment>
-        <CssBaseline />
-        <Container fixed>
-          <h2>Advices</h2>
-          <Card>
-            <CardContent>
-              <div>Advice of the day</div>
-              <div className="advice">{this.state.advices}</div>
-            </CardContent>
-            <CardActions>
-              <Button size="small">Learn More</Button>
-            </CardActions>
-          </Card>
-          <Button
-            onClick={this.handleClick}
-            size="small"
-            variant="contained"
-            color="primary"
-          >
-            Get new advice
-          </Button>
-        </Container>
-      </React.Fragment>
-    );
-  }
-}
+        {/* <div className="advice">
+            <ul>
+              {this.state.advices.map((driver, idx) => (
+                <Paper>
+                  <div key={driver.Driver.familyName}>
+                    <p>
+                      {driver.Driver.givenName} {driver.Driver.familyName}
+                    </p>
+                    <p>Position: {idx + 1}</p>
+                  </div>
+                </Paper>
+              ))}
+            </ul>
+          </div> */}
+      </Container>
+    </React.Fragment>
+  );
+};
 
 export default Landing;

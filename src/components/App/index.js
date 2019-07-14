@@ -7,15 +7,30 @@ import HomePage from "../Home";
 import SignupPage from "../SignupPage";
 import LoginPage from "../LoginPage";
 import userService from "../../utils/userService";
+import { getAdvice } from "../../services/ad-api";
 
 import * as ROUTES from "../../constants/routes";
+import DriverPage from "../DriverPage/DriverPage";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      user: userService.getUser()
+      user: userService.getUser(),
+      advices: []
     };
+  }
+
+  getAdvice = idx => {
+    return this.state.advices[idx];
+  };
+
+  async componentDidMount() {
+    const adviceData = await getAdvice();
+    this.setState({
+      advices: adviceData.MRData.RaceTable.Races[0].Results
+    });
+    console.log(this.state.advices);
   }
 
   handleLogout = () => {
@@ -34,7 +49,17 @@ class App extends Component {
           <Navigation handleLogout={this.handleLogout} user={this.state.user} />
           <hr />
 
-          <Route exact path={ROUTES.LANDING} component={LandingPage} />
+          <Route
+            exact
+            path={ROUTES.LANDING}
+            render={({ history }) => (
+              <LandingPage
+                history={history}
+                advices={this.state.advices}
+                getAdvice={this.getAdvice}
+              />
+            )}
+          />
           <Route path={ROUTES.HOME} component={HomePage} />
           <Route
             exact
@@ -54,6 +79,13 @@ class App extends Component {
                 history={history}
                 handleSignupOrLogin={this.handleSignupOrLogin}
               />
+            )}
+          />
+          <Route
+            exact
+            path={ROUTES.DRIVER}
+            render={props => (
+              <DriverPage {...props} getAdvice={this.getAdvice} />
             )}
           />
         </Router>
