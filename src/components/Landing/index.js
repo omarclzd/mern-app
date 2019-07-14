@@ -10,37 +10,36 @@ import Container from "@material-ui/core/Container";
 class Landing extends Component {
   constructor(props) {
     super(props);
-    this.handleAddComment = this.handleAddComment.bind(this);
-    this.state = {
-      comments: []
-    };
-  }
-  componentDidUpdate() {
-    /* global Ably */
-    const channel = Ably.channels.get("comments");
-
-    channel.attach();
-    channel.once("attached", () => {
-      channel.history((err, page) => {
-        const comments = Array.from(page.items, item => item.data);
-
-        this.setState({ comments });
-
-        channel.subscribe((msg, err) => {
-          const commentObject = msg["data"];
-          this.handleAddComment(commentObject);
-        });
-      });
-    });
+    // this.handleAddComment = this.handleAddComment.bind(this);
+    this.state = {};
   }
 
-  handleAddComment(comment) {
-    this.setState(prevState => {
-      return {
-        comments: [comment].concat(prevState.comments)
-      };
-    });
-  }
+  // componentDidUpdate() {
+  //   /* global Ably */
+  //   const channel = Ably.channels.get("comments");
+
+  //   channel.attach();
+  //   channel.once("attached", () => {
+  //     channel.history((err, page) => {
+  //       const comments = Array.from(page.items, item => item.data);
+
+  //       this.setState({ comments });
+
+  //       channel.subscribe((msg, err) => {
+  //         const commentObject = msg["data"];
+  //         this.handleAddComment(commentObject);
+  //       });
+  //     });
+  //   });
+  // }
+
+  // handleAddComment(comment) {
+  //   this.setState(prevState => {
+  //     return {
+  //       comments: [comment].concat(prevState.comments)
+  //     };
+  //   });
+  // }
 
   render() {
     let cmtBox = this.props.user ? (
@@ -50,11 +49,11 @@ class Landing extends Component {
             <div className="columns">
               <div className="column is-half is-offset-one-quarter">
                 <CommentBox
-                  handleAddComment={this.handleAddComment}
+                  handleAddComment={this.props.handleAddComment}
                   user={this.props.user}
                 />
                 <Comments
-                  comments={this.state.comments}
+                  comments={this.props.comments}
                   user={this.props.user}
                 />
               </div>

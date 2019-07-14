@@ -15,10 +15,11 @@ import DriverPage from "../DriverPage/DriverPage";
 class App extends Component {
   constructor(props) {
     super(props);
-
+    this.handleAddComment = this.handleAddComment.bind(this);
     this.state = {
       user: userService.getUser(),
-      advices: []
+      advices: [],
+      comments: []
     };
   }
 
@@ -28,10 +29,37 @@ class App extends Component {
 
   async componentDidMount() {
     const adviceData = await getAdvice();
-    this.setState({
-      advices: adviceData.MRData.RaceTable.Races[0].Results
+    /* global Ably */
+    const channel = Ably.channels.get("comments");
+    channel.attach();
+    channel.once("attached", () => {
+      channel.history((err, page) => {
+        const comments = Array.from(page.items, item => item.data);
+
+        this.setState({
+          comments,
+          advices: adviceData.MRData.RaceTable.Races[0].Results
+        });
+
+        channel.subscribe((msg, err) => {
+          const commentObject = msg["data"];
+          this.handleAddComment(commentObject);
+        });
+      });
     });
+
+    // this.setState({
+    //   advices: adviceData.MRData.RaceTable.Races[0].Results
+    // });
     console.log(this.state);
+  }
+
+  handleAddComment(comment) {
+    this.setState(prevState => {
+      return {
+        comments: [comment].concat(prevState.comments)
+      };
+    });
   }
 
   handleLogout = () => {
@@ -58,6 +86,8 @@ class App extends Component {
                 history={history}
                 advices={this.state.advices}
                 getAdvice={this.getAdvice}
+                comments={this.state.comments}
+                handleAddComment={this.handleAddComment}
                 user={this.state.user}
               />
             )}
