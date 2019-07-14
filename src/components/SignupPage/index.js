@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import SignupForm from "../SignupForm";
 import "./SignupPage.css";
 
-import * as ROUTES from "../../constants/routes";
-
 class SignupPage extends Component {
   constructor(props) {
     super(props);
