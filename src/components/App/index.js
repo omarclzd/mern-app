@@ -82,7 +82,6 @@ class App extends Component {
             )}
           />
           <Route
-            exact
             path={ROUTES.DRIVER}
             render={props => (
               <DriverPage {...props} getAdvice={this.getAdvice} />

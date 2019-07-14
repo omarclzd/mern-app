@@ -1,6 +1,6 @@
 import React from "react";
 import "./Landing.css";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Paper from "@material-ui/core/Paper";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -12,28 +12,22 @@ const Landing = props => {
       <CssBaseline />
       <Container fixed>
         <h2>Results</h2>
-        <Router>
-          <Route
-            exact
-            path="/"
-            render={() => (
-              <section>
-                <ol>
-                  {props.advices.map((driver, idx) => (
-                    <li>
-                      <Link
-                        to={`/driver/${idx}`}
-                        key={driver.Driver.familyName}
-                      >
-                        {driver.Driver.familyName}
-                      </Link>
-                    </li>
-                  ))}
-                </ol>
-              </section>
-            )}
-          />
-        </Router>
+
+        <section>
+          <ol>
+            {props.advices.map((driver, idx) => (
+              <li>
+                <Link
+                  color="inherit"
+                  to={`/driver/${idx}`}
+                  key={driver.Driver.familyName}
+                >
+                  {driver.Driver.familyName}
+                </Link>
+              </li>
+            ))}
+          </ol>
+        </section>
 
         {/* <div className="advice">
             <ul>
