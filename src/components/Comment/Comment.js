@@ -15,7 +15,7 @@ class Comment extends Component {
         <div className="media-content">
           <div className="content">
             <p>
-              <strong>{this.props.user.name}</strong>
+              <strong>{this.props.comment.name}</strong>
               <br />
               {this.props.comment.comment}
             </p>
