@@ -13,8 +13,9 @@ import * as ROUTES from "../../constants/routes";
 import DriverPage from "../DriverPage/DriverPage";
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
     this.state = {
       user: userService.getUser(),
       advices: []
@@ -30,7 +31,7 @@ class App extends Component {
     this.setState({
       advices: adviceData.MRData.RaceTable.Races[0].Results
     });
-    console.log(this.state.advices);
+    console.log(this.state);
   }
 
   handleLogout = () => {
