@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import "./App.css";
 
 import Navigation from "../Navigation";
 import LandingPage from "../Landing";
@@ -11,6 +12,7 @@ import { getAdvice } from "../../services/ad-api";
 
 import * as ROUTES from "../../constants/routes";
 import DriverPage from "../DriverPage/DriverPage";
+import Footer from "../Footer";
 
 class App extends Component {
   constructor(props) {
@@ -75,8 +77,12 @@ class App extends Component {
     return (
       <div>
         <Router>
-          <Navigation handleLogout={this.handleLogout} user={this.state.user} />
-          <hr />
+          <div>
+            <Navigation
+              handleLogout={this.handleLogout}
+              user={this.state.user}
+            />
+          </div>
 
           <Route
             exact
@@ -123,6 +129,9 @@ class App extends Component {
               />
             )}
           />
+          <div>
+            <Footer handleLogout={this.handleLogout} user={this.state.user} />
+          </div>
         </Router>
       </div>
     );

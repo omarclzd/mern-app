@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 import CommentBox from "../CommentBox/CommentBox";
 import Comments from "../Comments/Comments";
 
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Container from "@material-ui/core/Container";
-
 // class Landing extends Component {
 //   constructor(props) {
 //     super(props);
@@ -64,12 +61,10 @@ const Landing = props => {
   );
 
   return (
-    <React.Fragment>
-      <CssBaseline />
-      <Container fixed>
-        <h2>Results</h2>
-
-        <section>
+    <div className="">
+      <div className="row">
+        <div className="col-8">
+          <h2>Results</h2>
           <ol>
             {props.advices.map((driver, idx) => (
               <li>
@@ -83,11 +78,11 @@ const Landing = props => {
               </li>
             ))}
           </ol>
-        </section>
+        </div>
 
-        <div>{cmtBox}</div>
-      </Container>
-    </React.Fragment>
+        <div className="col-sm bg-dark ">{cmtBox}</div>
+      </div>
+    </div>
   );
 };
 
