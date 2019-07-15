@@ -52,3 +52,11 @@ div.cmb {
 table {
   margin-right: 4vmin !important;
 }
+
+div.media-content {
+  background-color: #343a40 !important;
+}
+
+p {
+  background-color: #343a40 !important;
+}

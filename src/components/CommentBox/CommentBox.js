@@ -44,7 +44,6 @@ class CommentBox extends Component {
             <div>
               <textarea
                 className="textarea"
-                className="form-control"
                 name="comment"
                 placeholder="Add a comment"
               />
@@ -52,7 +51,7 @@ class CommentBox extends Component {
           </div>
           <div>
             <div className="cmb">
-              <button className="btn btn-danger">Submit</button>
+              <button className="btn btn-warning">Submit</button>
             </div>
           </div>
         </form>

@@ -7,3 +7,7 @@ div.card {
 div.card-body {
   background-color: #b2291f;
 }
+
+p.card-text {
+  background-color: #b2291f !important;
+}

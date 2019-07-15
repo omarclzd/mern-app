@@ -12,8 +12,12 @@ class Footer extends Component {
             With supporting text below as a natural lead-in to additional
             content.
           </p>
-          <a href="#" class="btn btn-dark">
-            Go somewhere
+          <a
+            href="https://github.com/omarclzd"
+            target="_blank"
+            class="btn btn-dark"
+          >
+            Github
           </a>
         </div>
       </div>
