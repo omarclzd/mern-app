@@ -1,0 +1,10 @@
+div.card {
+}
+
+div.card-body {
+  background-color: #343a40 !important;
+}
+
+img.card-img {
+  height: 41vmin !important;
+}
