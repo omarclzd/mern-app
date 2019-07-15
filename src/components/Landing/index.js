@@ -3,6 +3,7 @@ import "./Landing.css";
 import { Link } from "react-router-dom";
 import CommentBox from "../CommentBox/CommentBox";
 import Comments from "../Comments/Comments";
+import * as ROUTES from "../../constants/routes";
 
 // class Landing extends Component {
 //   constructor(props) {
@@ -56,7 +57,12 @@ const Landing = props => {
     </div>
   ) : (
     <div>
-      <p>Please log in to leave a comment</p>
+      <p>
+        Please log in to comment
+        <Link to={ROUTES.SIGN_IN} class="badge badge-secondary">
+          Log In
+        </Link>
+      </p>
     </div>
   );
 

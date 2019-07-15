@@ -5,10 +5,7 @@ div.card-body.dark {
   background-color: #343a40 !important;
 }
 
-img.card-img {
-  height: 41vmin !important;
-}
-
-img.card-img.2 {
-  height: 45vmin !important;
+h2.notlogged {
+  height: 62vmin !important;
+  text-align: center;
 }

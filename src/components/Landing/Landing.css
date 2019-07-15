@@ -60,3 +60,7 @@ div.media-content {
 p {
   background-color: #343a40 !important;
 }
+
+a {
+  color: red !important;
+}

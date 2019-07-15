@@ -6,3 +6,7 @@ div {
   background-color: #141212;
   color: white;
 }
+
+div.LoginPage {
+  height: 60vmin !important;
+}

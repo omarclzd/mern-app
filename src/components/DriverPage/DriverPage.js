@@ -48,7 +48,12 @@ const DriverPage = props => {
     </div>
   ) : (
     <div>
-      <h2>Please Log In to see stats</h2>
+      <h2 className="notlogged">
+        Please log in to see stats
+        <Link to={ROUTES.SIGN_IN} class="badge badge-secondary">
+          Log In
+        </Link>
+      </h2>
     </div>
   );
 

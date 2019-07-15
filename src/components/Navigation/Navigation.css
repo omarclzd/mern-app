@@ -8,7 +8,7 @@ nav.navbar.navbar-dark.justify-content-center {
   height: 30px;
 }
 
-a.nav-item {
+a.text-reset.text-decoration-none {
   margin: 0 7vmin;
 }
 
