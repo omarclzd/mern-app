@@ -2,3 +2,16 @@ nav {
   color: white;
   height: 20px;
 }
+
+nav.navbar.navbar-dark.justify-content-center {
+  background-color: #b2291f !important;
+  height: 30px;
+}
+
+a.nav-item {
+  margin: 0 7vmin;
+}
+
+link {
+  text-decoration: none !important;
+}

@@ -20,7 +20,9 @@ h4.title {
   color: white;
 }
 div.col-8 {
-  padding-left: 20vmin;
+  padding-left: 10vmin;
+  padding-right: 9vmin;
+
   height: 100%;
 }
 /* div.row {
@@ -32,8 +34,21 @@ html {
 
 section.section {
   color: white;
+  background-color: #343a40;
 }
 
 strong {
   color: white;
+}
+
+.main {
+  margin-top: 0;
+}
+
+div.cmb {
+  background-color: #343a40 !important;
+}
+
+table {
+  margin-right: 4vmin !important;
 }

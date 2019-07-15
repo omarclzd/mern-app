@@ -1,3 +1,8 @@
 div.row {
   width: 100% !important;
 }
+
+div {
+  background-color: #141212;
+  color: white;
+}

@@ -20,38 +20,39 @@ class CommentBox extends Component {
         }
       });
       e.target.elements.comment.value = "";
-      e.target.elements.name.value = "";
+      // e.target.elements.name.value = "";
     }
   }
 
   render() {
     return (
-      <div>
-        <h3 className="">Comment on the race below!</h3>
+      <div className="cmb">
+        <h4 className="">Comment on the race below!</h4>
         <form onSubmit={this.addComment}>
-          <div className="field">
-            <div className="control">
+          <div className="form-group">
+            <div>
               <input
                 type="text"
-                className="input"
+                className="form-control"
                 name="name"
                 value={this.props.user.name}
                 disabled
               />
             </div>
           </div>
-          <div className="field">
-            <div className="control">
+          <div className="form-group">
+            <div>
               <textarea
                 className="textarea"
+                className="form-control"
                 name="comment"
                 placeholder="Add a comment"
               />
             </div>
           </div>
-          <div className="field">
-            <div className="control">
-              <button className="button is-primary">Submit</button>
+          <div>
+            <div className="cmb">
+              <button className="btn btn-danger">Submit</button>
             </div>
           </div>
         </form>

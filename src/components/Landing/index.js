@@ -39,11 +39,11 @@ import Comments from "../Comments/Comments";
 // }
 const Landing = props => {
   let cmtBox = props.user ? (
-    <div>
+    <div className="cmb">
       <section className="section">
-        <div className="container">
+        <div>
           <div className="columns">
-            <div className="column is-half is-offset-one-quarter">
+            <div>
               <CommentBox
                 handleAddComment={props.handleAddComment}
                 user={props.user}
@@ -61,23 +61,40 @@ const Landing = props => {
   );
 
   return (
-    <div className="">
+    <div className="main">
       <div className="row">
         <div className="col-8">
           <h2>Results</h2>
-          <ol>
+          <table className="table">
+            <thead className="thead-dark">
+              <tr>
+                <th>Position</th>
+                <th>Driver</th>
+                <th>Team</th>
+                <th>Status</th>
+              </tr>
+            </thead>
             {props.advices.map((driver, idx) => (
-              <li>
-                <Link
-                  color="inherit"
-                  to={`/driver/${idx}`}
-                  key={driver.Driver.familyName}
-                >
-                  {driver.Driver.familyName}
-                </Link>
-              </li>
+              <tbody>
+                <tr>
+                  <td key={driver.position}>{driver.position}</td>
+                  <td>
+                    <Link
+                      color="inherit"
+                      to={`/driver/${idx}`}
+                      key={driver.Driver.familyName}
+                    >
+                      {driver.Driver.familyName}
+                    </Link>
+                  </td>
+                  <td key={driver.Constructor.name}>
+                    {driver.Constructor.name}
+                  </td>
+                  <td key={driver.status}>{driver.status}</td>
+                </tr>
+              </tbody>
             ))}
-          </ol>
+          </table>
         </div>
 
         <div className="col-sm bg-dark ">{cmtBox}</div>

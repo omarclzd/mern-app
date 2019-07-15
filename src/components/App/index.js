@@ -84,6 +84,8 @@ class App extends Component {
             />
           </div>
 
+          <br />
+
           <Route
             exact
             path={ROUTES.LANDING}
