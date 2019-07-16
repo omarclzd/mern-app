@@ -84,6 +84,13 @@ class App extends Component {
     });
   }
 
+  // async componentDidMount() {
+  //   const adviceData = await getAdvice();
+  //   this.setState({
+  //     advices: adviceData.MRData.RaceTable.Races[0].Results
+  //   });
+  // }
+
   handleAddComment(comment) {
     this.setState(prevState => {
       return {
