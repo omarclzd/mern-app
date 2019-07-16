@@ -1,0 +1,13 @@
+div.card {
+  margin-top: 4.5vmin;
+  background-color: #b2291f;
+  color: white;
+}
+
+div.card-body {
+  background-color: #b2291f;
+}
+
+p.card-text {
+  background-color: #b2291f !important;
+}

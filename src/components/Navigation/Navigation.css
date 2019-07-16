@@ -1,4 +1,17 @@
 nav {
   color: white;
-  height: 20px;
+  height: 40px;
+}
+
+nav.navbar.justify-content-center {
+  background-color: #b2291f !important;
+  height: 10vmin !important;
+}
+
+a.text-reset.text-decoration-none {
+  margin: 0 7vmin;
+}
+
+link {
+  text-decoration: none !important;
 }

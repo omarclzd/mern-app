@@ -6,15 +6,23 @@ import "./Navigation.css";
 const Navigation = props => {
   let nav = props.user ? (
     <div>
-      <nav className="navbar navbar-dark bg-dark">
-        <Link color="inherit" to={ROUTES.LANDING}>
+      <nav className="navbar justify-content-center">
+        <Link className="text-reset text-decoration-none" to={ROUTES.LANDING}>
           Landing
         </Link>
 
-        <Link color="inherit" to={ROUTES.HOME}>
+        <Link
+          className="text-reset text-decoration-none"
+          color="inherit"
+          to={ROUTES.HOME}
+        >
           Home
         </Link>
-        <Link to={ROUTES.LANDING} onClick={props.handleLogout}>
+        <Link
+          className="text-reset text-decoration-none"
+          to={ROUTES.LANDING}
+          onClick={props.handleLogout}
+        >
           Log Out
         </Link>
 
@@ -23,20 +31,36 @@ const Navigation = props => {
     </div>
   ) : (
     <div>
-      <nav className="navbar navbar-dark bg-dark">
-        <Link color="inherit" to={ROUTES.LANDING}>
+      <nav className="navbar justify-content-center">
+        <Link
+          className="text-reset text-decoration-none"
+          color="inherit"
+          to={ROUTES.LANDING}
+        >
           Landing
         </Link>
 
-        <Link color="inherit" to={ROUTES.HOME}>
+        <Link
+          className="text-reset text-decoration-none"
+          color="inherit"
+          to={ROUTES.HOME}
+        >
           Home
         </Link>
 
-        <Link color="inherit" to={ROUTES.SIGN_UP}>
+        <Link
+          className="text-reset text-decoration-none"
+          color="inherit"
+          to={ROUTES.SIGN_UP}
+        >
           Sign Up
         </Link>
 
-        <Link color="inherit" to={ROUTES.SIGN_IN}>
+        <Link
+          className="text-reset text-decoration-none"
+          color="inherit"
+          to={ROUTES.SIGN_IN}
+        >
           Log In
         </Link>
       </nav>

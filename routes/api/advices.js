@@ -3,16 +3,10 @@ const router = express.Router();
 const advicesCtrl = require("../../controllers/advices");
 
 /*---------- Public Routes ----------*/
-
+router.post("/create", advicesCtrl.createDriver);
+router.post("/all", advicesCtrl.getAllDrivers);
 /*---------- Protected Routes ----------*/
-router.use(require("../../config/auth"));
-router.post("/create", (req, res) => {
-  var postData = req.body;
-  connection.query("INSERT SET ?", postData, (error, results, fields) => {
-    if (error) throw error;
-    res.end(JSON.stringify(results));
-  });
-});
+// router.use(require("../../config/auth"));
 
 /*----- Helper Functions -----*/
 function checkAuth(req, res, next) {

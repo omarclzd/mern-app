@@ -4,7 +4,13 @@ const bcrypt = require("bcrypt");
 const SALT_ROUNDS = 6;
 
 const adviceSchema = new mongoose.Schema({
-  advice: String
+  advice: String,
+  start: String,
+  finish: String,
+  laps: String,
+  status: String,
+  fastestLap: String,
+  fastestLapTime: String
 });
 
 const userSchema = new mongoose.Schema(
