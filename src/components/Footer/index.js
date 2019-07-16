@@ -6,6 +6,7 @@ class Footer extends Component {
     return (
       <div className="card text-center">
         <div className="card-header" />
+
         <div className="card-body">
           <h5 className="card-title">Special title treatment</h5>
           <p className="card-text">
