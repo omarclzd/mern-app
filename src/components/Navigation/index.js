@@ -6,7 +6,7 @@ import "./Navigation.css";
 const Navigation = props => {
   let nav = props.user ? (
     <div>
-      <nav className="navbar navbar-dark justify-content-center">
+      <nav className="navbar justify-content-center">
         <Link className="text-reset text-decoration-none" to={ROUTES.LANDING}>
           Landing
         </Link>
@@ -31,7 +31,7 @@ const Navigation = props => {
     </div>
   ) : (
     <div>
-      <nav className="navbar navbar-dark justify-content-center">
+      <nav className="navbar justify-content-center">
         <Link
           className="text-reset text-decoration-none"
           color="inherit"

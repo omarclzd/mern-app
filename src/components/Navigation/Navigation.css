@@ -1,11 +1,11 @@
 nav {
   color: white;
-  height: 20px;
+  height: 40px;
 }
 
-nav.navbar.navbar-dark.justify-content-center {
+nav.navbar.justify-content-center {
   background-color: #b2291f !important;
-  height: 30px;
+  height: 10vmin !important;
 }
 
 a.text-reset.text-decoration-none {

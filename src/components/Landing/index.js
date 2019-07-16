@@ -3,55 +3,19 @@ import "./Landing.css";
 import { Link } from "react-router-dom";
 import CommentBox from "../CommentBox/CommentBox";
 import Comments from "../Comments/Comments";
+import AddDriver from "../AddDriver/AddDriver";
 import * as ROUTES from "../../constants/routes";
 
-// class Landing extends Component {
-//   constructor(props) {
-//     super(props);
-// this.handleAddComment = this.handleAddComment.bind(this);
-//   this.state = {};
-// }
-
-// componentDidUpdate() {
-//   /* global Ably */
-//   const channel = Ably.channels.get("comments");
-
-//   channel.attach();
-//   channel.once("attached", () => {
-//     channel.history((err, page) => {
-//       const comments = Array.from(page.items, item => item.data);
-
-//       this.setState({ comments });
-
-//       channel.subscribe((msg, err) => {
-//         const commentObject = msg["data"];
-//         this.handleAddComment(commentObject);
-//       });
-//     });
-//   });
-// }
-
-// handleAddComment(comment) {
-//   this.setState(prevState => {
-//     return {
-//       comments: [comment].concat(prevState.comments)
-//     };
-//   });
-// }
 const Landing = props => {
   let cmtBox = props.user ? (
     <div className="cmb">
       <section className="section">
         <div>
-          <div className="columns">
-            <div>
-              <CommentBox
-                handleAddComment={props.handleAddComment}
-                user={props.user}
-              />
-              <Comments comments={props.comments} user={props.user} />
-            </div>
-          </div>
+          <CommentBox
+            handleAddComment={props.handleAddComment}
+            user={props.user}
+          />
+          <Comments comments={props.comments} user={props.user} />
         </div>
       </section>
     </div>
@@ -71,6 +35,7 @@ const Landing = props => {
       <div className="row">
         <div className="col-8">
           <h2>Results</h2>
+          <h5>Click on the driver's name to see their race stats!</h5>
           <table className="table">
             <thead className="thead-dark">
               <tr>
@@ -78,6 +43,7 @@ const Landing = props => {
                 <th>Driver</th>
                 <th>Team</th>
                 <th>Status</th>
+                <th>Button</th>
               </tr>
             </thead>
             {props.advices.map((driver, idx) => (
@@ -97,6 +63,13 @@ const Landing = props => {
                     {driver.Constructor.name}
                   </td>
                   <td key={driver.status}>{driver.status}</td>
+                  <td>
+                    <AddDriver
+                      user={props.user}
+                      driver={driver}
+                      handleAddDriver={props.handleAddDriver}
+                    />
+                  </td>
                 </tr>
               </tbody>
             ))}

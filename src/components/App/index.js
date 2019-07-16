@@ -25,6 +25,39 @@ class App extends Component {
     };
   }
 
+  handleAddDriver = (name, start, finish, laps, status, fastest, lapTime) => {
+    const { user } = this.state;
+    const options = {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({
+        name,
+        user,
+        start,
+        finish,
+        laps,
+        status,
+        fastest,
+        lapTime
+      })
+    };
+    async function createDriver(options) {
+      try {
+        const sendPost = await fetch("/api/advices/create", options);
+        const postResults = await sendPost.json();
+        return await postResults;
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    createDriver(options).then(results => {
+      console.log(results);
+    });
+  };
+
   getAdvice = idx => {
     return this.state.advices[idx];
   };
@@ -49,11 +82,6 @@ class App extends Component {
         });
       });
     });
-
-    // this.setState({
-    //   advices: adviceData.MRData.RaceTable.Races[0].Results
-    // });
-    console.log(this.state);
   }
 
   handleAddComment(comment) {
@@ -97,10 +125,14 @@ class App extends Component {
                 comments={this.state.comments}
                 handleAddComment={this.handleAddComment}
                 user={this.state.user}
+                handleAddDriver={this.handleAddDriver}
               />
             )}
           />
-          <Route path={ROUTES.HOME} component={HomePage} />
+          <Route
+            path={ROUTES.HOME}
+            render={props => <HomePage {...props} user={this.state.user} />}
+          />
           <Route
             exact
             path={ROUTES.SIGN_UP}

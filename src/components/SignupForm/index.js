@@ -95,7 +95,7 @@ class SignupForm extends Component {
           <div className="form-group">
             <div className="col-sm-12 text-center">
               <button
-                className="btn btn-default"
+                className="btn btn-warning"
                 disabled={this.isFormInvalid()}
               >
                 Sign Up
