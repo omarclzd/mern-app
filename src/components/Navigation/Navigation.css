@@ -12,6 +12,6 @@ a.text-reset.text-decoration-none {
   margin: 0 7vmin;
 }
 
-link {
-  text-decoration: none !important;
+span.badge.badge-secondary {
+  margin-top: 10px;
 }

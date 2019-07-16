@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Home.css";
-import { async } from "q";
 
 class Home extends Component {
   constructor(props) {
@@ -55,7 +54,9 @@ class Home extends Component {
             <p>Race Status: {driver.status}</p>
             <p>Fastest Lap: {driver.fastestLap}</p>
             <p>Fastest Lap Time: {driver.fastestLapTime}</p>
-            <button onClick="">Delete</button>
+            <button onClick="" className="btn btn-dark text-warning">
+              Delete
+            </button>
           </div>
         </div>
       );

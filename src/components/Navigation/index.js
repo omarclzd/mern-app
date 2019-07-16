@@ -7,26 +7,33 @@ const Navigation = props => {
   let nav = props.user ? (
     <div>
       <nav className="navbar justify-content-center">
-        <Link className="text-reset text-decoration-none" to={ROUTES.LANDING}>
+        <Link
+          className="text-reset text-decoration-none font-weight-bold"
+          to={ROUTES.LANDING}
+        >
           Landing
         </Link>
 
         <Link
-          className="text-reset text-decoration-none"
+          className="text-reset text-decoration-none font-weight-bold"
           color="inherit"
           to={ROUTES.HOME}
         >
           Home
         </Link>
         <Link
-          className="text-reset text-decoration-none"
+          className="text-reset text-decoration-none font-weight-bold"
           to={ROUTES.LANDING}
           onClick={props.handleLogout}
         >
           Log Out
         </Link>
-
-        <span>Welcom, {props.user.name}</span>
+        <h4>
+          Welcome{" "}
+          <span class="badge badge-secondary text-warning">
+            {props.user.name}
+          </span>
+        </h4>
       </nav>
     </div>
   ) : (

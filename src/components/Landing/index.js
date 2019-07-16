@@ -36,6 +36,11 @@ const Landing = props => {
         <div className="col-8">
           <h2>Results</h2>
           <h5>Click on the driver's name to see their race stats!</h5>
+          <h5>
+            Or, Click on{" "}
+            <span className="btn btn-dark text-danger">Add Driver</span> to add
+            it to your favorites!{" "}
+          </h5>
           <table className="table">
             <thead className="thead-dark">
               <tr>
@@ -43,7 +48,7 @@ const Landing = props => {
                 <th>Driver</th>
                 <th>Team</th>
                 <th>Status</th>
-                <th>Button</th>
+                <th>Add Driver</th>
               </tr>
             </thead>
             {props.advices.map((driver, idx) => (

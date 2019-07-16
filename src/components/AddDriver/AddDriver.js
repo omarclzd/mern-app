@@ -3,6 +3,7 @@ import React from "react";
 const AddDriver = props => {
   return (
     <button
+      className="btn btn-dark text-danger"
       onClick={() =>
         props.handleAddDriver(
           props.driver.Driver.familyName,
