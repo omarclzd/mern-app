@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import "./Home.css";
+import { async } from "q";
 
 class Home extends Component {
   constructor(props) {
@@ -7,6 +9,23 @@ class Home extends Component {
       drivers: []
     };
   }
+
+  handleDeleteDriver = (driverIdx, user, _id) => {
+    const options = {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({ driverIdx: driverIdx, _id: _id, user })
+    };
+
+    deleteDrivers(options).then(result => {
+      const newStateArray = this.state.drivers.filter(
+        (elem, idx) => idx !== result
+      );
+      this.setState({ drivers: newStateArray });
+    });
+  };
 
   componentDidMount() {
     const options = {
@@ -27,23 +46,22 @@ class Home extends Component {
   render() {
     let map = this.state.drivers.map((driver, idx) => {
       return (
-        <div>
-          <ul>
-            <li>{driver.advice}</li>
-            <li>{driver.start}</li>
-            <li>{driver.finish}</li>
-            <li>{driver.laps}</li>
-            <li>{driver.status}</li>
-            <li>{driver.fastestLap}</li>
-            <li>{driver.fastestLapTime}</li>
-          </ul>
+        <div className="card">
+          <h2 className="card-title text-center">{driver.advice}</h2>
+          <div className="card-body dark">
+            <p>Starting Position: {driver.start}</p>
+            <p>Ending Position: {driver.finish}</p>
+            <p>Laps: {driver.laps}</p>
+            <p>Race Status: {driver.status}</p>
+            <p>Fastest Lap: {driver.fastestLap}</p>
+            <p>Fastest Lap Time: {driver.fastestLapTime}</p>
+            <button onClick="">Delete</button>
+          </div>
         </div>
       );
     });
     return (
-      <div>
-        <p>hello</p>
-
+      <div className="container">
         <p>{map}</p>
       </div>
     );
@@ -57,6 +75,16 @@ async function getDrivers(options) {
     const fetchDrivers = await fetch("/api/advices/all", options);
     const data = await fetchDrivers.json();
 
+    return await data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function deleteDrivers(options) {
+  try {
+    const deleteDrivers = await fetch("/api/advices/deleteDriver", options);
+    const data = await deleteDrivers.json();
     return await data;
   } catch (error) {
     console.log(error);

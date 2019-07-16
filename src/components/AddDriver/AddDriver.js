@@ -1,7 +1,6 @@
 import React from "react";
 
 const AddDriver = props => {
-  console.log(props.driver.Driver.familyName);
   return (
     <button
       onClick={() =>

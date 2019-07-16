@@ -1,0 +1,11 @@
+div.card {
+}
+
+div.card-body.dark {
+  background-color: #343a40 !important;
+}
+
+h2.notlogged {
+  height: 62vmin !important;
+  text-align: center;
+}

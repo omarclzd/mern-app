@@ -5,6 +5,7 @@ const advicesCtrl = require("../../controllers/advices");
 /*---------- Public Routes ----------*/
 router.post("/create", advicesCtrl.createDriver);
 router.post("/all", advicesCtrl.getAllDrivers);
+router.post("/deleteDriver", advicesCtrl.deleteDriver);
 /*---------- Protected Routes ----------*/
 // router.use(require("../../config/auth"));
 
