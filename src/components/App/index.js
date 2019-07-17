@@ -62,34 +62,34 @@ class App extends Component {
     return this.state.advices[idx];
   };
 
-  async componentDidMount() {
-    const adviceData = await getAdvice();
-    /* global Ably */
-    const channel = Ably.channels.get("comments");
-    channel.attach();
-    channel.once("attached", () => {
-      channel.history((err, page) => {
-        const comments = Array.from(page.items, item => item.data);
-
-        this.setState({
-          comments,
-          advices: adviceData.MRData.RaceTable.Races[0].Results
-        });
-
-        channel.subscribe((msg, err) => {
-          const commentObject = msg["data"];
-          this.handleAddComment(commentObject);
-        });
-      });
-    });
-  }
-
   // async componentDidMount() {
   //   const adviceData = await getAdvice();
-  //   this.setState({
-  //     advices: adviceData.MRData.RaceTable.Races[0].Results
+  //   /* global Ably */
+  //   const channel = Ably.channels.get("comments");
+  //   channel.attach();
+  //   channel.once("attached", () => {
+  //     channel.history((err, page) => {
+  //       const comments = Array.from(page.items, item => item.data);
+
+  //       this.setState({
+  //         comments,
+  //         advices: adviceData.MRData.RaceTable.Races[0].Results
+  //       });
+
+  //       channel.subscribe((msg, err) => {
+  //         const commentObject = msg["data"];
+  //         this.handleAddComment(commentObject);
+  //       });
+  //     });
   //   });
   // }
+
+  async componentDidMount() {
+    const adviceData = await getAdvice();
+    this.setState({
+      advices: adviceData.MRData.RaceTable.Races[0].Results
+    });
+  }
 
   handleAddComment(comment) {
     this.setState(prevState => {

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Home.css";
-import { Toast, ToastBody, ToastHeader, Col } from "reactstrap";
+import { Toast, ToastBody, ToastHeader } from "reactstrap";
 
 class Home extends Component {
   constructor(props) {
