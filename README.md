@@ -18,7 +18,7 @@ As a user I will be able to save drivers to my profile.
 
 ## Technologies Used
 
-React, JavaScrip, Express, Node.js, MongoDb, Mongoose,
+React, JavaScrip, Express, Node.js, MongoDb, Mongoose, Heroku, Ably
 
 ## Getting Sarted
 
