@@ -6,20 +6,32 @@ import Comments from "../Comments/Comments";
 import AddDriver from "../AddDriver/AddDriver";
 import { Table } from "reactstrap";
 import * as ROUTES from "../../constants/routes";
-import { Container, Row, Col } from "reactstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Toast,
+  ToastBody,
+  ToastHeader,
+  Button
+} from "reactstrap";
 
 const Landing = props => {
   let cmtBox = props.user ? (
-    <div className="cmb">
-      <section className="section">
-        <div>
-          <CommentBox
-            handleAddComment={props.handleAddComment}
-            user={props.user}
-          />
-          <Comments comments={props.comments} user={props.user} />
-        </div>
-      </section>
+    <div>
+      <div className="p-3 bg-secondary my-2 rounded">
+        <Toast className="container">
+          <ToastHeader>
+            <CommentBox
+              handleAddComment={props.handleAddComment}
+              user={props.user}
+            />
+          </ToastHeader>
+          <ToastBody className="text-dark">
+            <Comments comments={props.comments} user={props.user} />
+          </ToastBody>
+        </Toast>
+      </div>
     </div>
   ) : (
     <div>
@@ -35,14 +47,35 @@ const Landing = props => {
   return (
     <Container>
       <Row>
-        <Col xs="8">
-          <h2>Results</h2>
-          <h5>Click on the driver's name to see their race stats!</h5>
+        <Col xs="7">
+          <div className="p-3 my-2 rounded">
+            <Toast>
+              <ToastHeader>
+                <h2>
+                  <span className="badge badge-secondary text-warning">
+                    Welcome {props.user.name}
+                  </span>
+                </h2>
+              </ToastHeader>
+              <ToastBody>
+                Click on the driver's name to see their race stats!
+              </ToastBody>
+              <ToastBody>
+                Or, Click on{" "}
+                <Button size="sm" color="danger" className="font-weight-bold">
+                  Add Driver
+                </Button>{" "}
+                to add it to your favorites!{" "}
+              </ToastBody>
+            </Toast>
+          </div>
+
+          {/* <h5>Click on the driver's name to see their race stats!</h5>
           <h5>
             Or, Click on{" "}
             <span className="btn btn-warning text-danger">Add Driver</span> to
             add it to your favorites!{" "}
-          </h5>
+          </h5> */}
           <Table dark>
             <thead className="thead-dark">
               <tr>
@@ -57,7 +90,7 @@ const Landing = props => {
               <tbody>
                 <tr>
                   <td key={driver.position}>{driver.position}</td>
-                  <td className="text-danger">
+                  <td className="font-weight-bold">
                     <Link
                       className="text-reset danger"
                       to={`/driver/${idx}`}
@@ -83,7 +116,9 @@ const Landing = props => {
           </Table>
         </Col>
 
-        <Col xs="auto">{cmtBox}</Col>
+        <Col xs="auto" className="center">
+          {cmtBox}
+        </Col>
       </Row>
     </Container>
   );

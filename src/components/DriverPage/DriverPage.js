@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./DriverPage.css";
 import * as ROUTES from "../../constants/routes";
+import { Spinner } from "reactstrap";
 
 const DriverPage = props => {
   const driver = props.getAdvice(props.match.params.idx);
@@ -41,7 +42,7 @@ const DriverPage = props => {
               </Link>
             </div>
           ) : (
-            <h3>Loading...</h3>
+            <Spinner style={{ width: "3rem", height: "3rem" }} />
           )}
         </div>
       </div>

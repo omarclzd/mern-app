@@ -4,8 +4,9 @@ import { Button } from "reactstrap";
 const AddDriver = props => {
   return (
     <Button
-      className="text-danger"
-      color="warning"
+      size="sm"
+      className="font-weight-bold"
+      color="danger"
       onClick={() =>
         props.handleAddDriver(
           props.driver.Driver.familyName,
@@ -18,7 +19,7 @@ const AddDriver = props => {
         )
       }
     >
-      Add Adriver
+      Add Driver
     </Button>
   );
 };

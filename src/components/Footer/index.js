@@ -9,7 +9,7 @@ class Footer extends Component {
 
         <div className="card-body">
           <h5 className="card-title">Special title treatment</h5>
-          <p className="card-text">
+          <p className="card-text text-light">
             With supporting text below as a natural lead-in to additional
             content.
           </p>
@@ -17,7 +17,7 @@ class Footer extends Component {
             href="https://github.com/omarclzd"
             // eslint-disable-next-line
             target="_blank"
-            className="btn btn-dark"
+            className="btn btn-dark text-danger"
           >
             Github
           </a>

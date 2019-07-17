@@ -169,10 +169,10 @@ export default class Navigation extends React.Component {
 //           Log Out
 //         </Link>
 //         <h4>
-//           Welcome{" "}
-//           <span class="badge badge-secondary text-warning">
-//             {props.user.name}
-//           </span>
+// Welcome{" "}
+// <span class="badge badge-secondary text-warning">
+//   {props.user.name}
+// </span>
 //         </h4>
 //       </nav>
 //     </div>

@@ -66,3 +66,24 @@ h2 {
 h5 {
   color: red;
 }
+
+div.p-3.my-2.rounded {
+  color: black !important;
+}
+
+div.toast-body {
+  color: black;
+}
+
+a.text-reset.danger {
+  color: yellow !important;
+}
+
+p {
+  color: #343a40;
+  font-size: 15px;
+}
+
+div.p-3.bg-secondary.my-2.rounded {
+  background-color: #343a40 !important;
+}

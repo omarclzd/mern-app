@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Comment extends Component {
   render() {
     return (
-      <article className="media">
+      <article className="media text-dark">
         <figure className="media-left" />
         <div className="media-content">
           <div className="content">
