@@ -1,11 +1,11 @@
-nav {
+/* nav {
   color: white;
   height: 40px;
 }
 
 nav.navbar.justify-content-center {
-  background-color: #b2291f !important;
-  height: 10vmin !important;
+  background-color: #16153c !important;
+  height: 14vmin !important;
 }
 
 a.text-reset.text-decoration-none {
@@ -13,5 +13,17 @@ a.text-reset.text-decoration-none {
 }
 
 span.badge.badge-secondary {
-  margin-top: 10px;
+  margin-top: 0px;
+} */
+
+nav.navbar.navbar-light {
+  background-color: #16153c !important;
+}
+
+button.mr-2.navbar-toggler {
+  background-color: white !important;
+}
+
+li.nav-item {
+  background-color: #16153c;
 }

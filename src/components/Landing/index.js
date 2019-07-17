@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import CommentBox from "../CommentBox/CommentBox";
 import Comments from "../Comments/Comments";
 import AddDriver from "../AddDriver/AddDriver";
+import { Table } from "reactstrap";
 import * as ROUTES from "../../constants/routes";
+import { Container, Row, Col } from "reactstrap";
 
 const Landing = props => {
   let cmtBox = props.user ? (
@@ -31,17 +33,17 @@ const Landing = props => {
   );
 
   return (
-    <div className="main">
-      <div className="row">
-        <div className="col-8">
+    <Container>
+      <Row>
+        <Col xs="8">
           <h2>Results</h2>
           <h5>Click on the driver's name to see their race stats!</h5>
           <h5>
             Or, Click on{" "}
-            <span className="btn btn-dark text-danger">Add Driver</span> to add
-            it to your favorites!{" "}
+            <span className="btn btn-warning text-danger">Add Driver</span> to
+            add it to your favorites!{" "}
           </h5>
-          <table className="table">
+          <Table dark>
             <thead className="thead-dark">
               <tr>
                 <th>Position</th>
@@ -55,9 +57,9 @@ const Landing = props => {
               <tbody>
                 <tr>
                   <td key={driver.position}>{driver.position}</td>
-                  <td>
+                  <td className="text-danger">
                     <Link
-                      color="inherit"
+                      className="text-reset danger"
                       to={`/driver/${idx}`}
                       key={driver.Driver.familyName}
                     >
@@ -78,12 +80,12 @@ const Landing = props => {
                 </tr>
               </tbody>
             ))}
-          </table>
-        </div>
+          </Table>
+        </Col>
 
-        <div className="col-sm bg-dark ">{cmtBox}</div>
-      </div>
-    </div>
+        <Col xs="auto">{cmtBox}</Col>
+      </Row>
+    </Container>
   );
 };
 

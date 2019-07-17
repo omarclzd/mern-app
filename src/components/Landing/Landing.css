@@ -1,4 +1,4 @@
-.center {
+/* .center {
   align-content: center;
 }
 
@@ -25,12 +25,6 @@ div.col-8 {
 
   height: 100%;
 }
-/* div.row {
-  margin-bottom: 40px;
-}
-
-html {
-  height: auto !important; */
 
 section.section {
   color: white;
@@ -63,4 +57,12 @@ p {
 
 a {
   color: red !important;
+} */
+
+h2 {
+  color: red;
+}
+
+h5 {
+  color: red;
 }

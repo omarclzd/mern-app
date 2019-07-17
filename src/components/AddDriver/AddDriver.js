@@ -1,9 +1,11 @@
 import React from "react";
+import { Button } from "reactstrap";
 
 const AddDriver = props => {
   return (
-    <button
-      className="btn btn-dark text-danger"
+    <Button
+      className="text-danger"
+      color="warning"
       onClick={() =>
         props.handleAddDriver(
           props.driver.Driver.familyName,
@@ -17,7 +19,7 @@ const AddDriver = props => {
       }
     >
       Add Adriver
-    </button>
+    </Button>
   );
 };
 

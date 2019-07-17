@@ -1,4 +1,4 @@
-div.row {
+/* div.row {
   width: 100% !important;
 }
 
@@ -9,4 +9,8 @@ div {
 
 div.LoginPage {
   height: 60vmin !important;
+} */
+
+div {
+  color: white;
 }

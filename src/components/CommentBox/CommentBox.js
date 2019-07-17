@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import { Form, FormGroup, Input } from "reactstrap";
+
 class CommentBox extends Component {
   constructor(props) {
     super(props);
@@ -28,10 +30,10 @@ class CommentBox extends Component {
     return (
       <div className="cmb">
         <h4 className="">Comment on the race below!</h4>
-        <form onSubmit={this.addComment}>
-          <div className="form-group">
+        <Form onSubmit={this.addComment}>
+          <FormGroup row>
             <div>
-              <input
+              <Input
                 type="text"
                 className="form-control"
                 name="name"
@@ -39,22 +41,23 @@ class CommentBox extends Component {
                 disabled
               />
             </div>
-          </div>
-          <div className="form-group">
+          </FormGroup>
+          <FormGroup row>
             <div>
-              <textarea
+              <Input
+                type="textarea"
                 className="textarea"
                 name="comment"
                 placeholder="Add a comment"
               />
             </div>
-          </div>
+          </FormGroup>
           <div>
             <div className="cmb">
               <button className="btn btn-warning">Submit</button>
             </div>
           </div>
-        </form>
+        </Form>
       </div>
     );
   }
