@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Home.css";
+import { Toast, ToastBody, ToastHeader, Col } from "reactstrap";
 
 class Home extends Component {
   constructor(props) {
@@ -45,18 +46,24 @@ class Home extends Component {
   render() {
     let map = this.state.drivers.map((driver, idx) => {
       return (
-        <div className="card">
-          <h2 className="card-title text-center">{driver.advice}</h2>
+        <div className="card dark">
           <div className="card-body dark">
-            <p>Starting Position: {driver.start}</p>
-            <p>Ending Position: {driver.finish}</p>
-            <p>Laps: {driver.laps}</p>
-            <p>Race Status: {driver.status}</p>
-            <p>Fastest Lap: {driver.fastestLap}</p>
-            <p>Fastest Lap Time: {driver.fastestLapTime}</p>
-            <button onClick="" className="btn btn-dark text-warning">
-              Delete
-            </button>
+            <Toast>
+              <ToastHeader>
+                <h2 className="card-title text-center">{driver.advice}</h2>
+              </ToastHeader>
+              <ToastBody>
+                <p>Starting Position: {driver.start}</p>
+                <p>Ending Position: {driver.finish}</p>
+                <p>Laps: {driver.laps}</p>
+                <p>Race Status: {driver.status}</p>
+                <p>Fastest Lap: {driver.fastestLap}</p>
+                <p>Fastest Lap Time: {driver.fastestLapTime}</p>
+                <button onClick="" className="btn btn-dark text-warning">
+                  Delete
+                </button>
+              </ToastBody>
+            </Toast>
           </div>
         </div>
       );
