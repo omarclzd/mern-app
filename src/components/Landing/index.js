@@ -22,7 +22,7 @@ const Landing = props => {
       <div className="p-3 bg-secondary my-2 rounded">
         <Toast className="container">
           <ToastHeader className="text-dark">
-            <h6 className="font-weight-bold">Comment on the Reac bellow!</h6>
+            <h6 className="font-weight-bold">Comment on the race bellow!</h6>
           </ToastHeader>
           <ToastBody className="text-dark">
             <CommentBox
