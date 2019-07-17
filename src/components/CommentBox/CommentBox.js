@@ -29,7 +29,6 @@ class CommentBox extends Component {
   render() {
     return (
       <div className="cmb">
-        <h4 className="text-dark">Comment on the race below!</h4>
         <Form onSubmit={this.addComment}>
           <FormGroup row>
             <div>

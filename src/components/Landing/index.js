@@ -21,13 +21,14 @@ const Landing = props => {
     <div>
       <div className="p-3 bg-secondary my-2 rounded">
         <Toast className="container">
-          <ToastHeader>
+          <ToastHeader className="text-dark">
+            <h6 className="font-weight-bold">Comment on the Reac bellow!</h6>
+          </ToastHeader>
+          <ToastBody className="text-dark">
             <CommentBox
               handleAddComment={props.handleAddComment}
               user={props.user}
             />
-          </ToastHeader>
-          <ToastBody className="text-dark">
             <Comments comments={props.comments} user={props.user} />
           </ToastBody>
         </Toast>
@@ -35,13 +36,26 @@ const Landing = props => {
     </div>
   ) : (
     <div>
-      <p>
-        Please log in to comment
-        <Link to={ROUTES.SIGN_IN} class="badge badge-secondary">
-          Log In
-        </Link>
-      </p>
+      <Toast>
+        <ToastHeader>Please log in to comment</ToastHeader>
+        <ToastBody>
+          <Link
+            to={ROUTES.SIGN_IN}
+            className="btn btn-warning font-weight-bold"
+          >
+            Log In
+          </Link>
+        </ToastBody>
+      </Toast>
     </div>
+  );
+
+  let usr = props.user ? (
+    <span className="badge badge-secondary text-warning">
+      Welcome {props.user.name}
+    </span>
+  ) : (
+    <span className="badge badge-secondary text-warning">Welcome</span>
   );
 
   return (
@@ -51,11 +65,7 @@ const Landing = props => {
           <div className="p-3 my-2 rounded">
             <Toast>
               <ToastHeader>
-                <h2>
-                  <span className="badge badge-secondary text-warning">
-                    Welcome {props.user.name}
-                  </span>
-                </h2>
+                <h2>{usr}</h2>
               </ToastHeader>
               <ToastBody>
                 Click on the driver's name to see their race stats!
